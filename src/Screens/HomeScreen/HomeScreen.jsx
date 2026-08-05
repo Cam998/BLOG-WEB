@@ -13,32 +13,34 @@ import VisorYaoi from '../../Components/VisorYaoi/VisorYaoi';
 import Altar from '../../Components/Altar/Altar';
 import Quiz from '../../Components/Quiz/Quiz';
 import LanguageBtn from '../../Context/LanguageBtn';
+import { getMessages, addMessage } from '../../Services/database';
 
 
 export default function HomeScreen() {
-    const [listaMensajes, setListaMensajes] = useState(() => {
-        const guardados = localStorage.getItem("blog_mensajes_aprobados");
-        return guardados ? JSON.parse(guardados) : [];
-    });
-
-    const [mensajesPendientes, setMensajesPendientes] = useState(() => {
-        const guardados = localStorage.getItem("blog_mensajes_pendientes");
-        return guardados ? JSON.parse(guardados) : [];
-    });
-
+    const [listaMensajes, setListaMensajes] = useState([]);
     const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
-        localStorage.setItem("blog_mensajes_aprobados", JSON.stringify(listaMensajes));
-    }, [listaMensajes]);
+        let active = true;
+        getMessages().then((msgs) => {
+            if (active) {
+                const aprobados = msgs.filter(m => m.estado === "aprobado");
+                setListaMensajes(aprobados);
+            }
+        });
+        return () => {
+            active = false;
+        };
+    }, []);
 
-    useEffect(() => {
-        localStorage.setItem("blog_mensajes_pendientes", JSON.stringify(mensajesPendientes));
-    }, [mensajesPendientes]);
-
-    const agregarMensaje = (nuevoMensaje) => {
-        setMensajesPendientes((prev) => [...prev, nuevoMensaje]);
-        setShowModal(true);
+    const agregarMensaje = async (nuevoMensaje) => {
+        try {
+            await addMessage(nuevoMensaje);
+            setShowModal(true);
+        } catch (error) {
+            console.error(error);
+            alert("Hubo un error al enviar el mensaje. Inténtalo de nuevo. 💔");
+        }
     };
 
     return (

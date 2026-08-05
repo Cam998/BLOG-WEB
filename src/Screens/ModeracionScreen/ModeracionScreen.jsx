@@ -2,29 +2,28 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import "./moderacionScreen.css";
 import "../HomeScreen/homeScreen.css"; 
+import { getMessages, updateMessageStatus, deleteMessage } from "../../Services/database";
 
 export default function ModeracionScreen() {
     const navigate = useNavigate();
     const [password, setPassword] = useState("");
     const [isAuthorized, setIsAuthorized] = useState(false);
 
-    const [pendientes, setPendientes] = useState(() => {
-        const guardados = localStorage.getItem("blog_mensajes_pendientes");
-        return guardados ? JSON.parse(guardados) : [];
-    });
-
-    const [aprobados, setAprobados] = useState(() => {
-        const guardados = localStorage.getItem("blog_mensajes_aprobados");
-        return guardados ? JSON.parse(guardados) : [];
-    });
+    const [pendientes, setPendientes] = useState([]);
+    const [aprobados, setAprobados] = useState([]);
 
     useEffect(() => {
-        localStorage.setItem("blog_mensajes_pendientes", JSON.stringify(pendientes));
-    }, [pendientes]);
-
-    useEffect(() => {
-        localStorage.setItem("blog_mensajes_aprobados", JSON.stringify(aprobados));
-    }, [aprobados]);
+        if (isAuthorized) {
+            getMessages().then((msgs) => {
+                const pend = msgs.filter(m => m.estado === "pendiente");
+                const aprob = msgs.filter(m => m.estado === "aprobado");
+                setPendientes(pend);
+                setAprobados(aprob);
+            }).catch(err => {
+                console.error("Error loading messages for moderation:", err);
+            });
+        }
+    }, [isAuthorized]);
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -36,18 +35,38 @@ export default function ModeracionScreen() {
         }
     };
 
-    const handleAprobar = (index) => {
+    const handleAprobar = async (index) => {
         const msg = pendientes[index];
-        setAprobados((prev) => [...prev, msg]);
-        setPendientes((prev) => prev.filter((_, idx) => idx !== index));
+        try {
+            await updateMessageStatus(msg.id, "aprobado");
+            setAprobados((prev) => [...prev, { ...msg, estado: "aprobado" }]);
+            setPendientes((prev) => prev.filter((_, idx) => idx !== index));
+        } catch (error) {
+            console.error(error);
+            alert("Error al aprobar el mensaje ❌");
+        }
     };
 
-    const handleRechazar = (index) => {
-        setPendientes((prev) => prev.filter((_, idx) => idx !== index));
+    const handleRechazar = async (index) => {
+        const msg = pendientes[index];
+        try {
+            await deleteMessage(msg.id);
+            setPendientes((prev) => prev.filter((_, idx) => idx !== index));
+        } catch (error) {
+            console.error(error);
+            alert("Error al rechazar el mensaje ❌");
+        }
     };
 
-    const handleEliminar = (index) => {
-        setAprobados((prev) => prev.filter((_, idx) => idx !== index));
+    const handleEliminar = async (index) => {
+        const msg = aprobados[index];
+        try {
+            await deleteMessage(msg.id);
+            setAprobados((prev) => prev.filter((_, idx) => idx !== index));
+        } catch (error) {
+            console.error(error);
+            alert("Error al eliminar el mensaje ❌");
+        }
     };
 
     if (!isAuthorized) {
