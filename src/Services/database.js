@@ -1,11 +1,8 @@
-// Database service to sync messages with backend API or fallback to localStorage
 const API_URL = "/api";
 
-// Fallback LocalStorage keys
 const LS_PENDIENTES = "blog_mensajes_pendientes";
 const LS_APROBADOS = "blog_mensajes_aprobados";
 
-// State to keep track if we should bypass API and use local storage directly
 let useLocalFallback = false;
 
 const getLocalData = (key) => {

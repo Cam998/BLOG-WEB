@@ -43,7 +43,6 @@ body {
     padding: 20px;
     width: 1015px;
     height: auto;
-    /* Para darle altura. (min-heigh/margin) */
     min-height: 970px;
     margin: 7.5vh auto;
     gap: 14px;

@@ -27,12 +27,10 @@ async function connectDB() {
 
 const router = express.Router();
 
-// Get all messages
 router.get("/messages", async (req, res) => {
     try {
         const database = await connectDB();
         const messages = await database.collection("messages").find({}).toArray();
-        // Map _id to id
         const mapped = messages.map(msg => ({
             id: msg._id.toString(),
             nombre: msg.nombre,
@@ -48,7 +46,6 @@ router.get("/messages", async (req, res) => {
     }
 });
 
-// Create new message
 router.post("/messages", async (req, res) => {
     try {
         const database = await connectDB();
@@ -74,7 +71,6 @@ router.post("/messages", async (req, res) => {
     }
 });
 
-// Update message status (e.g. approve)
 router.patch("/messages/:id", async (req, res) => {
     try {
         const database = await connectDB();
@@ -101,7 +97,6 @@ router.patch("/messages/:id", async (req, res) => {
     }
 });
 
-// Delete message
 router.delete("/messages/:id", async (req, res) => {
     try {
         const database = await connectDB();
@@ -122,7 +117,6 @@ router.delete("/messages/:id", async (req, res) => {
     }
 });
 
-// Health check endpoint
 router.get("/health", async (req, res) => {
     try {
         await connectDB();
@@ -135,7 +129,6 @@ router.get("/health", async (req, res) => {
 app.use("/api", router);
 app.use("/", router);
 
-// Start server locally if file is run directly
 const isDirect = process.argv[1] && (
     process.argv[1] === fileURLToPath(import.meta.url) || 
     process.argv[1].endsWith("api/index.js") ||
