@@ -34,3 +34,10 @@
     color: #444444;
     overflow: hidden;
 }
+
+@media (max-width: 768px) {
+    .present-container {
+        height: auto;
+        min-height: 190px;
+    }
+}

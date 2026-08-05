@@ -48,7 +48,6 @@ export default function SandroScreen() {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        document.body.style.overflow = "hidden";
 
         const mountTimer = setTimeout(() => {
             iniciarAnimacion();
@@ -57,7 +56,6 @@ export default function SandroScreen() {
         return () => {
             clearTimeout(mountTimer);
             timeoutIds.current.forEach(clearTimeout);
-            document.body.style.overflow = "auto";
         };
     }, []);
 

@@ -153,14 +153,31 @@ button *,
 
 @media (max-width: 768px) {
     .sandro-main-container {
-        top: 45px;
-        bottom: 45px;
-        width: 500px;
-        max-width: 92vw;
+        position: relative;
+        top: 20px;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        width: 92%;
+        max-width: 450px;
+        margin: 20px auto 80px auto;
+        height: auto;
     }
 
     .sandro-main-container h1 {
-        margin-top: 100px;
+        margin-top: 45px;
+        font-size: 22px;
+    }
+
+    .sandro-galeria {
+        width: min(80vw, 300px);
+        height: min(80vw, 300px);
+        margin: 10px auto 10px auto;
+    }
+
+    .sandro-galeria img.foto {
+        width: min(65vw, 220px);
+        height: min(65vw, 220px);
     }
 
     .cancion-id {
@@ -168,10 +185,12 @@ button *,
         align-items: center;
         z-index: 1001;
         position: fixed;
-        bottom: 1px;
+        bottom: 12px;
         left: 50%;
         right: auto;
         transform: translateX(-50%);
         white-space: nowrap;
+        font-size: 11px;
+        padding: 6px 12px;
     }
 }

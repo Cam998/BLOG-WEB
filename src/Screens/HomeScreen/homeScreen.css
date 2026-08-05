@@ -18,6 +18,12 @@ input[type="button"],
     cursor: url('/assets/Images/corazon (1).png'), pointer !important;
 }
 
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body {
     padding: 0;
     min-height: 100vh;
@@ -115,7 +121,8 @@ body {
     gap: 12px;
 }
 
-.visor-yaoi-lista a {
+.visor-yaoi-lista a,
+.visor-yaoi-lista .altar-container {
     display: block;
     flex: 1;
     height: 320px;
@@ -177,7 +184,7 @@ body {
 
     .derecha-columna {
         display: flex !important;
-        flex-direction: row !important;
+        flex-direction: column !important;
         justify-content: center;
         align-items: center;
         width: 100%;
@@ -207,7 +214,7 @@ body {
 
     .visor-yaoi-lista {
         display: flex !important;
-        flex-direction: row !important;
+        flex-direction: column !important;
         justify-content: center;
         align-items: center;
         width: 100%;
@@ -215,7 +222,8 @@ body {
         order: 8;
     }
 
-    .visor-yaoi-lista a {
+    .visor-yaoi-lista a,
+    .visor-yaoi-lista .altar-container {
         display: block;
         width: 100%;
         max-width: 220px;
