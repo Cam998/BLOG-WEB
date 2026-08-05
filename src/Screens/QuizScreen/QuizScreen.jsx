@@ -184,6 +184,11 @@ export default function QuizScreen() {
 
     useEffect(() => {
         window.scrollTo(0, 0);
+        if (audioRef.current) {
+            audioRef.current.play().catch(err => {
+                console.log("Autoplay blocked on mount:", err);
+            });
+        }
     }, []);
 
     const handleAnswer = (type) => {
@@ -220,7 +225,12 @@ export default function QuizScreen() {
                     <button className="btn-volver" onClick={() => navigate("/home")}>
                         ← Volver al Blog
                     </button>
-                    <button className="btn-comenzar-quiz" onClick={() => setStarted(true)}>
+                    <button className="btn-comenzar-quiz" onClick={() => {
+                        setStarted(true);
+                        if (audioRef.current) {
+                            audioRef.current.play().catch(err => console.log("Audio play failed on start:", err));
+                        }
+                    }}>
                         Comenzar Quiz
                     </button>
                 </div>
