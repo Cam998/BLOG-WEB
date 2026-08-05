@@ -25,8 +25,10 @@ async function connectDB() {
     return db;
 }
 
+const router = express.Router();
+
 // Get all messages
-app.get("/api/messages", async (req, res) => {
+router.get("/messages", async (req, res) => {
     try {
         const database = await connectDB();
         const messages = await database.collection("messages").find({}).toArray();
@@ -41,13 +43,13 @@ app.get("/api/messages", async (req, res) => {
         }));
         res.json(mapped);
     } catch (error) {
-        console.error("GET /api/messages error:", error);
+        console.error("GET /messages error:", error);
         res.status(500).json({ error: error.message });
     }
 });
 
 // Create new message
-app.post("/api/messages", async (req, res) => {
+router.post("/messages", async (req, res) => {
     try {
         const database = await connectDB();
         const { nombre, mail, mensaje } = req.body;
@@ -67,13 +69,13 @@ app.post("/api/messages", async (req, res) => {
         const result = await database.collection("messages").insertOne(nuevoMensaje);
         res.json({ id: result.insertedId.toString() });
     } catch (error) {
-        console.error("POST /api/messages error:", error);
+        console.error("POST /messages error:", error);
         res.status(500).json({ error: error.message });
     }
 });
 
 // Update message status (e.g. approve)
-app.patch("/api/messages/:id", async (req, res) => {
+router.patch("/messages/:id", async (req, res) => {
     try {
         const database = await connectDB();
         const { id } = req.params;
@@ -94,13 +96,13 @@ app.patch("/api/messages/:id", async (req, res) => {
 
         res.json({ success: true });
     } catch (error) {
-        console.error("PATCH /api/messages/:id error:", error);
+        console.error("PATCH /messages/:id error:", error);
         res.status(500).json({ error: error.message });
     }
 });
 
 // Delete message
-app.delete("/api/messages/:id", async (req, res) => {
+router.delete("/messages/:id", async (req, res) => {
     try {
         const database = await connectDB();
         const { id } = req.params;
@@ -115,13 +117,13 @@ app.delete("/api/messages/:id", async (req, res) => {
 
         res.json({ success: true });
     } catch (error) {
-        console.error("DELETE /api/messages/:id error:", error);
+        console.error("DELETE /messages/:id error:", error);
         res.status(500).json({ error: error.message });
     }
 });
 
 // Health check endpoint
-app.get("/api/health", async (req, res) => {
+router.get("/health", async (req, res) => {
     try {
         await connectDB();
         res.json({ status: "OK", database: "connected" });
@@ -129,6 +131,9 @@ app.get("/api/health", async (req, res) => {
         res.status(500).json({ status: "ERROR", database: error.message });
     }
 });
+
+app.use("/api", router);
+app.use("/", router);
 
 // Start server locally if file is run directly
 const isDirect = process.argv[1] && (
