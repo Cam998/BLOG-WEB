@@ -1,0 +1,177 @@
+a,
+button,
+[role="button"],
+input[type="submit"],
+input[type="button"],
+.btn-volver,
+.btn-reiniciar,
+.mensaje-eliminar-btn,
+.yaoi-flecha,
+.btn-flecha,
+.punto,
+.punto-yaoi,
+.estrella-animacion,
+a *,
+button *,
+[role="button"] *,
+.btn-volver *,
+.btn-reiniciar *,
+.mensaje-eliminar-btn *,
+.yaoi-flecha *,
+.btn-flecha * {
+    cursor: url('/assets/Images/corazon (1).png'), pointer !important;
+}
+
+.sandro-main-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: fixed;
+    top: 25px;
+    bottom: 25px;
+    left: 50%;
+    padding: 20px;
+    width: 700px;
+    gap: 20px;
+    border: 3px solid #f8ef40;
+    border-radius: 11px;
+    box-shadow: 6px 6px 0px #333344;
+    background-color: #ec5510;
+    text-align: center;
+    font-family: 'Courier Prime', monospace;
+    color: #333344;
+    transform: translateX(-50%);
+}
+
+.sandro-main-container h1 {
+    margin: 35px 0 5px 0;
+    font-size: 28px;
+    color: #ffffff;
+    text-shadow: 2px 2px 0px #333344;
+}
+
+.btn-volver {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 8px 14px;
+    border: 2px solid #333344;
+    border-radius: 6px;
+    box-shadow: 2px 2px 0px #333344;
+    background-color: #7D45E6;
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.btn-volver:hover {
+    background-color: #8f5df2;
+}
+
+.btn-volver:active {
+    box-shadow: none;
+    transform: translate(2px, 2px);
+}
+
+.sandro-galeria {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 10px auto 20px auto;
+    border: 3px dashed #f8ef40;
+    border-radius: 12px;
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.05);
+    background-color: #eb1313;
+    overflow: visible;
+}
+
+.sandro-galeria img.foto {
+    position: absolute;
+    object-fit: cover;
+    width: 300px;
+    height: 300px;
+    border: 3px solid #ec5510;
+    border-radius: 8px;
+    box-shadow: 4px 4px 0px #ec5510;
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
+}
+
+.btn-reiniciar {
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: 2px solid #333344;
+    border-radius: 8px;
+    box-shadow: 4px 4px 0px #333344;
+    background-color: #61A823;
+    font-family: 'Courier Prime', monospace;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.btn-reiniciar:hover {
+    background-color: #72c22a;
+}
+
+.btn-reiniciar:active {
+    box-shadow: none;
+    transform: translate(3px, 3px);
+}
+
+.cancion-id {
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    padding: 8px 14px;
+    gap: 8px;
+    border: 2px solid #333344;
+    border-radius: 6px;
+    box-shadow: 2px 2px 0px #333344;
+    background-color: #7D45E6;
+    color: #ffffff;
+    font-family: 'Courier Prime', monospace;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.cancion-id img {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .sandro-main-container {
+        top: 45px;
+        bottom: 45px;
+        width: 500px;
+        max-width: 92vw;
+    }
+
+    .sandro-main-container h1 {
+        margin-top: 100px;
+    }
+
+    .cancion-id {
+        display: flex;
+        align-items: center;
+        z-index: 1001;
+        position: fixed;
+        bottom: 1px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        white-space: nowrap;
+    }
+}

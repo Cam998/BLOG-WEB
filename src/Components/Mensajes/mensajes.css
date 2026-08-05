@@ -1,0 +1,297 @@
+.mensajes-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 8px 15px 15px 15px;
+    width: 100%;
+    gap: 15px;
+    border: 3px solid #333344;
+    border-radius: 12px;
+    box-shadow: 4px 4px 0px #333344;
+    background-color: #61a823;
+    font-family: 'Courier Prime', monospace;
+    color: #333344;
+    overflow: hidden;
+}
+
+.h1-mensajes h1 {
+    margin: 0 0 5px 0;
+    text-align: start;
+    font-size: 25px;
+    font-weight: bold;
+    color: #fcfcff;
+}
+
+.h1-mensajes h2 {
+    height: 30px;
+    margin: 0;
+    line-height: 1.4;
+    text-align: start;
+    font-size: 11px;
+    font-weight: normal;
+    color: #fffbfb;
+    overflow: hidden;
+}
+
+.enviar-mensaje-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+
+.enviar-mensaje-container input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 2px solid #333344;
+    border-radius: 6px;
+    background-color: #ffffff;
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    color: #333344;
+    outline: none;
+}
+
+.enviar-mensaje-container input::placeholder {
+    color: #aaaaaa;
+}
+
+.enviar-mensaje-container button {
+    padding: 8px 16px;
+    border: 2px solid #333344;
+    border-radius: 6px;
+    box-shadow: 2px 2px 0px #333344;
+    background-color: #ff007f;
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.enviar-mensaje-container button:active {
+    box-shadow: none;
+    transform: translate(2px, 2px);
+}
+
+.lista-mensajes-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    width: 100%;
+    margin-top: 10px;
+    gap: 12px;
+    border: 3px solid #333344;
+    border-radius: 12px;
+    box-shadow: 4px 4px 0px #333344;
+    background-color: #7D45E6;
+    font-family: 'Courier Prime', monospace;
+    color: #333344;
+}
+
+.lista-mensajes-container h3 {
+    margin: 0;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #eaa7cd;
+}
+
+.lista-mensajes-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 8px;
+    width: 100%;
+    margin-bottom: 10px;
+    gap: 8px;
+    border-bottom: 2px dashed #333344;
+}
+
+.btn-moderar-toggle {
+    padding: 6px 10px;
+    border: 2px solid #000000;
+    border-radius: 6px;
+    box-shadow: 2px 2px 0px #000000;
+    background-color: #333344;
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    font-weight: bold;
+    color: #ff007f;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.btn-moderar-toggle:active {
+    box-shadow: 1px 1px 0px #000000;
+    transform: translate(1px, 1px);
+}
+
+.moderacion-subtitle {
+    margin: 0 0 10px 0;
+    font-size: 13px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.mensaje-item.pendiente {
+    border: 2px solid #333344;
+    background-color: #fce79c;
+}
+
+.mensaje-item.pendiente .mensaje-texto {
+    color: #333344 !important;
+}
+
+.moderacion-acciones {
+    display: flex;
+    margin-top: 10px;
+    gap: 8px;
+}
+
+.btn-aprobar,
+.btn-rechazar {
+    padding: 5px 12px;
+    border: 2px solid #333344;
+    border-radius: 6px;
+    box-shadow: 2px 2px 0px #333344;
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.btn-aprobar:active,
+.btn-rechazar:active {
+    box-shadow: 1px 1px 0px #333344;
+    transform: translate(1px, 1px);
+}
+
+.btn-aprobar {
+    background-color: #61a823;
+}
+
+.btn-aprobar:hover {
+    background-color: #72c22a;
+}
+
+.btn-rechazar {
+    background-color: #ff007f;
+}
+
+.btn-rechazar:hover {
+    background-color: #ff3399;
+}
+
+.mensajes-scroll {
+    display: flex;
+    flex-direction: column;
+    padding-right: 5px;
+    height: 200px;
+    gap: 10px;
+    overflow-y: scroll;
+}
+
+.mensajes-scroll::-webkit-scrollbar {
+    width: 8px;
+}
+
+.mensajes-scroll::-webkit-scrollbar-track {
+    border-radius: 4px;
+    background: #f1f1f1;
+}
+
+.mensajes-scroll::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: #ff007f;
+}
+
+.mensaje-item {
+    padding: 10px;
+    border: 2px solid #333344;
+    border-radius: 8px;
+    box-shadow: 2px 2px 0px #333344;
+    background-color: #ff92de;
+}
+
+.mensaje-header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 3px;
+    margin-bottom: 5px;
+    gap: 10px;
+    border-bottom: 1px dotted #dddddd;
+    font-size: 11px;
+    font-weight: bold;
+    color: #555555;
+}
+
+.mensaje-nombre {
+    color: #ff007f;
+}
+
+.mensaje-mail {
+    font-style: italic;
+    color: #777777;
+}
+
+.mensaje-texto {
+    line-height: 1.4;
+    font-size: 12px;
+    color: #ffffff;
+    word-break: break-word;
+}
+
+.mensaje-eliminar-btn {
+    padding: 0 4px;
+    line-height: 1;
+    margin-left: auto;
+    border: none;
+    background: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ff007f;
+    cursor: pointer;
+    /* Aligns it to the far right inside flex row! */
+    transition: color 0.15s ease;
+}
+
+.mensaje-eliminar-btn:hover {
+    color: #cc0000;
+}
+
+.derecha-abajo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 20px;
+}
+
+.perro-video {
+    display: flex;
+    margin-top: 14px;
+}
+
+.estrella-animacion {
+    display: block;
+    border: 3px solid #333344;
+    border-radius: 12px;
+    box-shadow: 4px 4px 0px #333344;
+    cursor: pointer;
+}
+
+/* ── Responsive Mobile Styles ── */
+@media (max-width: 768px) {
+    .h1-mensajes h1 {
+        font-size: 18px;
+    }
+
+    .lista-mensajes-container h3 {
+        font-size: 16px;
+    }
+}

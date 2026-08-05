@@ -1,0 +1,12 @@
+.avatar-container {
+    width: 310px;
+    height: 690px;
+    border-radius: 5px;
+}
+
+.avatar {
+    width: 310px;
+    height: 680px;
+    margin-top: 1px;
+    border-radius: 5px;
+}

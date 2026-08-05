@@ -1,0 +1,322 @@
+a,
+button,
+[role="button"],
+input[type="submit"],
+input[type="button"],
+.btn-volver,
+.btn-reiniciar,
+.mensaje-eliminar-btn,
+.yaoi-flecha,
+.btn-flecha,
+.punto,
+.punto-yaoi,
+.estrella-animacion,
+.btn-quiz,
+.prevBtn,
+.playBtn,
+.nextBtn {
+    cursor: url('/assets/Images/corazon (1).png'), pointer !important;
+}
+
+body {
+    padding: 0;
+    min-height: 100vh;
+    margin: 0;
+    background-image: url('/assets/Images/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.main-container {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px;
+    width: 1015px;
+    height: auto;
+    /* Para darle altura. (min-heigh/margin) */
+    min-height: 970px;
+    margin: 7.5vh auto;
+    gap: 14px;
+    border-radius: 11px;
+    background-image: url('/assets/Images/Texturelabs_Paper_201L.jpg');
+}
+
+.derecha-columna {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.columna-presentacion {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 14px;
+}
+
+.presentacion-wrapper {
+    display: flex;
+    align-items: flex-start;
+}
+
+.izquierda-seccion {
+    display: flex;
+    flex-direction: column;
+    min-width: 524px;
+    gap: 14px;
+}
+
+.fila-componentes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.links-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.mensajes-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+}
+
+.lista-mensajes-wrapper {
+    display: flex;
+    align-items: flex-start;
+}
+
+.perro-y-quiz-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.perro-video {
+    margin: 0 !important;
+}
+
+.visor-yaoi-lista {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 5px;
+    gap: 12px;
+}
+
+.visor-yaoi-lista a {
+    display: block;
+    flex: 1;
+    height: 320px;
+}
+
+.presentacion-mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        padding: 12px;
+        width: 95%;
+        min-height: auto;
+        margin: 15px auto;
+        gap: 16px;
+    }
+
+    .izquierda-seccion {
+        display: contents;
+    }
+
+    .columna-presentacion {
+        display: contents;
+    }
+
+    .fila-componentes {
+        display: contents;
+    }
+
+    .avatar-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-width: 310px;
+        height: auto;
+        margin: 0 auto;
+        order: 1;
+    }
+
+    .avatar {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    .presentacion-mobile {
+        display: block;
+        width: 100%;
+        order: 2;
+    }
+
+    .presentacion-wrapper {
+        display: none;
+    }
+
+    .derecha-columna {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 12px;
+        order: 3;
+    }
+
+    .links-wrapper {
+        width: 100%;
+        order: 4;
+    }
+
+    .tabla-wrapper {
+        width: 100%;
+        order: 5;
+    }
+
+    .mensajes-wrapper {
+        width: 100%;
+        order: 6;
+    }
+
+    .lista-mensajes-wrapper {
+        width: 100%;
+        order: 7;
+    }
+
+    .visor-yaoi-lista {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 12px;
+        order: 8;
+    }
+
+    .visor-yaoi-lista a {
+        display: block;
+        width: 100%;
+        max-width: 220px;
+        height: 320px;
+    }
+
+    .perro-y-quiz-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 16px;
+        order: 9;
+    }
+
+    .quiz-link {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        order: 1;
+    }
+
+    .perro-video {
+        order: 2;
+    }
+
+    .language-container {
+        top: 8px;
+        right: 8px;
+    }
+}
+
+.custom-modal-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.custom-modal-card {
+    padding: 25px;
+    width: 320px;
+    max-width: 90%;
+    border: 3px solid #333344;
+    border-radius: 12px;
+    box-shadow: 6px 6px 0px #333344;
+    background-color: #ff92de;
+    font-family: 'Courier Prime', monospace;
+    text-align: center;
+    color: #333344;
+    animation: modalPop 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.custom-modal-card h3 {
+    margin-top: 0;
+    text-shadow: 2px 2px 0px #333344;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.custom-modal-card p {
+    margin: 15px 0 20px 0;
+    line-height: 1.4;
+    font-size: 12px;
+    color: #ffffff;
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
+}
+
+.custom-modal-card button {
+    padding: 8px 20px;
+    border: 2px solid #333344;
+    border-radius: 6px;
+    box-shadow: 2px 2px 0px #333344;
+    background-color: #61a823;
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.custom-modal-card button:active {
+    box-shadow: 1px 1px 0px #333344;
+    transform: translate(1px, 1px);
+}
+
+@keyframes modalPop {
+    from {
+        transform: scale(0.85);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

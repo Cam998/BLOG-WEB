@@ -1,0 +1,33 @@
+.links-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
+    padding: 8px 15px 15px 15px;
+    width: 100%;
+    gap: 8px;
+    border: 3px solid #333344;
+    border-radius: 12px;
+    box-shadow: 4px 4px 0px #333344;
+    background-color: #ffe5ec;
+}
+
+.h1-links-container h1 {
+    margin: 0 0 4px 0;
+    font-family: 'Courier Prime', monospace;
+    font-size: 25px;
+    color: #333344;
+}
+
+.links-container a {
+    font-family: 'Courier Prime', monospace;
+    font-size: 15px;
+    font-weight: bold;
+    color: #ff007f;
+    text-decoration: none;
+}
+
+.links-container a:hover {
+    text-decoration: underline;
+}

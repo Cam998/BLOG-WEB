@@ -1,0 +1,109 @@
+.yaoi-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    width: 100%;
+    max-width: 210px;
+    height: 335px;
+    border: 3px solid #333344;
+    border-radius: 12px;
+    background-color: #ffc3d3;
+    font-family: 'Courier Prime';
+    color: #333344;
+}
+
+.marco-yaoi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 7px;
+    width: 100%;
+    height: 225px;
+    border: 2px solid #333344;
+    border-radius: 6px;
+    background-color: #ffe5ec;
+    overflow: hidden;
+}
+
+.marco-yaoi img {
+    object-fit: cover;
+    width: 100%;
+    height: 110%;
+    animation: aparecer 0.25s ease;
+}
+
+.controles-yaoi {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 6px;
+}
+
+.yaoi-flecha {
+    padding: 4px 8px;
+    border: none;
+    background: none;
+    font-size: 16px;
+    color: #333344;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.yaoi-flecha:active {
+    transform: scale(0.85);
+}
+
+.info-yaoi {
+    flex: 1;
+    text-align: center;
+}
+
+.titulo-foto-yaoi {
+    font-size: 13px;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.contador-yaoi {
+    margin-top: 2px;
+    font-size: 11px;
+    opacity: 0.8;
+}
+
+.puntos-yaoi {
+    display: flex;
+    justify-content: center;
+    margin-top: 6px;
+    gap: 6px;
+}
+
+.punto-yaoi {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #333344;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.punto-yaoi.activo {
+    background-color: #ce95c2;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
